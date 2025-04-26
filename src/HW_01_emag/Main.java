@@ -71,7 +71,7 @@ public class Main {
 
             WebElement addToCart = driver.findElement(By.xpath("//div[@class='flex-shrink-1 flex-grow-1']"));
             addToCart.click();
-      /* try{
+    /* try{
             Thread.sleep(5000);
         } catch (InterruptedException e) {
            e.printStackTrace();
@@ -79,7 +79,7 @@ public class Main {
 
 */
             // WebElement viewCartFromAlert = driver.findElement(By.xpath("//div[@class='table-cell col-xs-12 col-sm-2 col-md-2 d-none d-md-table-cell']"));
-            WebElement viewCartFromAlert = driver.findElement(By.xpath("//a[@data-dismiss = 'modal']"));
+          WebElement viewCartFromAlert = driver.findElement(By.xpath("//a[@data-dismiss = 'modal']"));
 
             viewCartFromAlert.click();
             try{
@@ -132,4 +132,4 @@ public class Main {
         }
     }
 
-}
+
