@@ -19,7 +19,14 @@ import static org.testng.Assert.assertEquals;
 
 public class TC02_searchAddCartDelete {
 
+    public static void verificationAssert(String actualResult, String expectedResult, String verifText){
+        assertEquals(actualResult, expectedResult, verifText);
+
+    }
+
     public static void main(String[] args) {
+
+
 
         System.out.println("CHECK that EMAG opens ok, by Title");
 
@@ -44,12 +51,11 @@ public class TC02_searchAddCartDelete {
         assertEquals(actualTitle, expectedTitle, "Verific ca sunt pe partea de start emag"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - landing page EMAG opens correctly");
 */
-        AssertStuff assertStuff = new AssertStuff();
 
-        String actualResult = home.getTitle();
-        String expectedResult = "eMAG.ro - Căutarea nu se oprește niciodată";
-        assertStuff.verificationAsser(actualResult, expectedResult, "Verific ca sunt pe partea de start emag"); // doar daca nu e ok apare acest mesaj
+        verificationAssert(home.getTitle(), "eMAG.ro - Căutarea nu se oprește niciodată", "Verific ca sunt pe partea de start emag"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - landing page EMAG opens correctly");
+
+
 
         // String expectedTitleFail = "fail eMAG.ro - Căutarea nu se oprește niciodată";
         // assertEquals(actualTitle, expectedTitleFail, "Verific ca sunt pe partea de start emag"); // doar daca nu e ok apare acest mesaj
@@ -64,9 +70,7 @@ public class TC02_searchAddCartDelete {
 
         //assert - Check that search results is correct
 
-        actualResult = driver.getCurrentUrl();
-        expectedResult = "https://www.emag.ro/search/aspiratoare";
-        assertStuff.verificationAsser(actualResult, expectedResult, "The URL for searching results is not correct"); // doar daca nu e ok apare acest mesaj
+        verificationAssert(driver.getCurrentUrl(), "https://www.emag.ro/search/aspiratoare", "The URL for searching results is not correct"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - search results page is displayed");
 
         // Așteaptă pentru rezultate
