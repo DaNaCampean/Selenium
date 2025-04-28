@@ -17,10 +17,19 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="testng.remote" level="project" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../selenium-server-4.31.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/JAVA_automation/selenium-server-4.31.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -32,10 +32,10 @@ public class TC02_searchAddCartDelete {
         WebDriver driver;
 
         // call Mac setup
-      //  driver = browserSetup.driverSetupMac();
+        driver = browserSetup.driverSetupMac();
 
         //call Windows setup
-        driver = browserSetup.driverSetupWindows();
+      //  driver = browserSetup.driverSetupWindows();
 
 
         driver.get("https://emag.ro");
@@ -72,9 +72,12 @@ public class TC02_searchAddCartDelete {
 
         // XPath for selecting the 3rd aspirator
         WebElement productCard = driver.findElement(By.xpath("//div[@class = 'card-item card-standard js-product-data js-card-clickable '][3]"));
-        String tagNameAsp = productCard.getText();
-        System.out.println("TAG NAME = " + tagNameAsp);
 
+       // Get the value of the data-name attribute
+        String dataName = productCard.getAttribute("data-name");
+
+        // Print the data-name value
+        System.out.println("Data-name attribute value: " + dataName);
         productCard.click();
 
         WebElement t1 = driver.findElement(By.xpath(" //h1[@class='page-title']"));
@@ -82,8 +85,10 @@ public class TC02_searchAddCartDelete {
         System.out.println("T1 = " + myt1);
 
         System.out.println("CHECK that the 3rd aspirator details page opens");
-        verificationAssert(myt1,tagNameAsp, "The page opened is not correct"); // doar daca nu e ok apare acest mesaj
+        verificationAssert(myt1,dataName, "The page opened is not correct"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - correct page is displayed");
+
+
 
 
         //assert - Check that the third aspirator details page opens
