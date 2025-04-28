@@ -21,9 +21,10 @@ public class TC01_landing_page {
         WebDriver driver;
 
         // call Mac setup
-        driver = browserSetup.driverSetupMac();
+        //driver = browserSetup.driverSetupMac();
 
-        //call Windows setup         driver = browserSetup.driverSetupWindows();
+        //call Windows setup
+        driver = browserSetup.driverSetupWindows();
 
         driver.get("https://emag.ro");
 
@@ -31,12 +32,9 @@ public class TC01_landing_page {
         HomePage home = new HomePage(driver);
 
         String actualTitle = home.getTitle();
-        String expectedTitle = "eMAG.ro - Căutarea nu se oprește niciodată";
+        String expectedTitle = "eMAG.ro - Căsutarea nu se oprește niciodată";
         assertEquals(actualTitle, expectedTitle, "Verific ca sunt pe partea de start emag"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - landing page EMAG opens correctly");
-
-       // String expectedTitleFail = "fail eMAG.ro - Căutarea nu se oprește niciodată";
-       // assertEquals(actualTitle, expectedTitleFail, "Verific ca sunt pe partea de start emag"); // doar daca nu e ok apare acest mesaj
 
         driver.close();
 
