@@ -11,9 +11,10 @@ import static org.testng.Assert.assertTrue;
 import HW_01_emag.pages.HomePage;
 import HW_01_emag.BrowserSetup.ChromeSetup;
 import HW_01_emag.pages.SearchResultsPage;
-import org.testng.Assert;
+import HW_01_emag.pages.ProductDetailsPage;
+import HW_01_emag.pages.CosulMeuPage;
 
-public class TC02_searchAddCartDelete {
+public class TC01_searchAddCartDelete {
 
     // methode for assert
     public static void verificationAssert(String actualResult, String expectedResult, String verifText){
@@ -27,8 +28,8 @@ public class TC02_searchAddCartDelete {
 
         WebDriver driver;
 
-        // driver = browserSetup.driverSetupMac(); // call Mac setup
-        driver = browserSetup.driverSetupWindows(); //call Windows setup
+         driver = browserSetup.driverSetupMac(); // call Mac setup
+        //driver = browserSetup.driverSetupWindows(); //call Windows setup
 
         driver.get("https://emag.ro");
 
@@ -55,62 +56,66 @@ public class TC02_searchAddCartDelete {
         // Așteaptă pentru rezultate - daca nu pun asta.... nu imi gaseste urmatorul XPath
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        // XPath for selecting the 3rd aspirator
-        WebElement productCard = driver.findElement(By.xpath("//div[@class = 'card-item card-standard js-product-data js-card-clickable '][2]"));
+        // get data for assert - aspirator name from search page
+        String dataName = search.returnDataName();
+        // select the 3rd aspirator
+        search.selectProduct();
 
-        // Get the value of the data-name attribute for the third apirator from search page
-        String dataName = productCard.getAttribute("data-name");
-        productCard.click(); // select the 3rd aspirator
+        //Create object of ProductDetailsPage
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
+        String productName = productDetailsPage.productGetText();
 
-        WebElement productDetails = driver.findElement(By.xpath(" //h1[@class='page-title']")); //xPath for aspirator details page to be used for assert
-        String productName = productDetails.getText();
         System.out.print("CHECK that the 3rd aspirator details page opens - ");
         verificationAssert(productName,dataName, "The page opened is not correct"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - correct page is displayed");
 
-        WebElement addToCart = driver.findElement(By.xpath("//div[@class='flex-shrink-1 flex-grow-1']")); //XPath for AddTo Cart
-        addToCart.click();
+        //Create object of CosulMeuPage
+        CosulMeuPage cosulMeu = new CosulMeuPage(driver);
+
+        //Adauga produsul in cos din details page
+        cosulMeu.addToCartClick();
+
 
         // NOTA: Daca nu pun acest sleep, nu imi poate citi textul pentru assert, getText. Imi apare valoarea "" / empty string
+        //NOTA 2: presimt ca acest sleep ar trebui adaugat in pages undeva, dar nu imi dau seama unde...poate ar fi trebuit in loc
+        // de BrowserSetup package sa ii spun altfel, unde sa am chestii extra...
+
+
         try{
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        WebElement viewCartFromAlert = driver.findElement(By.xpath("//a[@data-dismiss = 'modal']")); //XPath for "Vezi detalii cos" button
+
+
+
 
         //assert - Check that "Add to Cart " worked by verifying that "Produsul a fost adaugat in cos" text appears on the alert
-        WebElement addToCartConfirmation = driver.findElement(By.xpath("//span[@class='d-none d-sm-block']")); //search for confirmation text
         System.out.print("CHECK that the product was added to cart - ");
-        verificationAssert(addToCartConfirmation.getText(), "Produsul a fost adaugat in cos", "Produsul a fost adaugat in cos text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
+        verificationAssert(cosulMeu.confirmationText(), "Produsul a fost adaugat in cos", "Produsul a fost adaugat in cos text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - The product was added to cart.");
+        cosulMeu.viewCartFromAlert();
 
-        viewCartFromAlert.click(); //press "Vezi detalii cos button. "cosul" meu page opens ( opened from Alert)
 
         //assert - Check that "Cosul meu" page opens.
-
-        WebElement cosulMeuText = driver.findElement(By.xpath(" //h1[text()='Coșul meu']")); //search for Cosul meu text
         System.out.print("CHECK that the Cosul meu page opens (opened from Alert) - ");
-        verificationAssert(cosulMeuText.getText(), "Coșul meu", "Cosul meu text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
+        verificationAssert(cosulMeu.viewCosulMeuHeaderText(), "Coșul meu", "Cosul meu text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - The cart opens.");
 
-        WebElement cosulMeu = driver.findElement(By.id("my_cart"));
-        cosulMeu.click(); //press "Cosul meu button. "cosul" meu page opens ( opened from the menu)
-
-        WebElement cosulMeuTextSecond = driver.findElement(By.xpath(" //h1[text()='Coșul meu']")); //search for Cosul meu text
+        //assert - Check that "Cosul meu" page opens from View Cart Menu - top right
+        cosulMeu.clickCosulMeuMenu();
         System.out.print("CHECK that the Cosul meu page opens (opened from the menu) - ");
-        verificationAssert(cosulMeuTextSecond.getText(), "Coșul meu", "Cosul meu text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
+        verificationAssert(cosulMeu.viewCosulMeuHeaderText(), "Coșul meu", "Cosul meu text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - The cart opens.");
 
-        WebElement stergeElement = driver.findElement(By.xpath("//div[@class='line-item line-item-footer d-none d-md-block']/div[@class='mb-1']/button[@class='btn btn-link outline-0 fs-12 fs-md-14 btn-remove-product gtm_rp080219 remove-product']"));
-        //am localizat butonul sterge
 
-        stergeElement.click(); //produs sters
+        cosulMeu.deleteProduct(); //am localizat butonul sterge + produs sters
 
-        WebElement deletedMessage = driver.findElement(By.xpath("//p[@class='mb-0']")); //search for textul: Cosul tau de cumparaturi nu contine produse.
+
+
         System.out.print("CHECK that the Cosul meu nu mai contine nici un produs - ");
         String searchedTextPartial = "Cosul tau de cumparaturi nu contine produse.";
-        boolean verifyText = deletedMessage.getText().contains(searchedTextPartial);
+        boolean verifyText = cosulMeu.deletedMessageText().contains(searchedTextPartial);
         assertTrue(verifyText, "Produsul nu a fost corect sters; nu gasim mesajul Cosul tau de cumparaturi nu contine produse");
         System.out.println("PASSED - The product was correctly deleted.");
 
