@@ -52,11 +52,11 @@ public class TC02_searchAddCartDelete {
         verificationAssert(driver.getCurrentUrl(), "https://www.emag.ro/search/aspiratoare", "The URL for searching results is not correct"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - search results page is displayed");
 
-        // Așteaptă pentru rezultate
+        // Așteaptă pentru rezultate - daca nu pun asta.... nu imi gaseste urmatorul XPath
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         // XPath for selecting the 3rd aspirator
-        WebElement productCard = driver.findElement(By.xpath("//div[@class = 'card-item card-standard js-product-data js-card-clickable '][3]"));
+        WebElement productCard = driver.findElement(By.xpath("//div[@class = 'card-item card-standard js-product-data js-card-clickable '][2]"));
 
         // Get the value of the data-name attribute for the third apirator from search page
         String dataName = productCard.getAttribute("data-name");
@@ -115,7 +115,7 @@ public class TC02_searchAddCartDelete {
         System.out.println("PASSED - The product was correctly deleted.");
 
 
-       driver.close();
+        driver.close();
 
 
     }
