@@ -71,6 +71,7 @@ public class TC02_searchAddCartDelete {
         WebElement addToCart = driver.findElement(By.xpath("//div[@class='flex-shrink-1 flex-grow-1']")); //XPath for AddTo Cart
         addToCart.click();
 
+        // NOTA: Daca nu pun acest sleep, nu imi poate citi textul pentru assert, getText. Imi apare valoarea "" / empty string
         try{
             Thread.sleep(5000);
         } catch (InterruptedException e) {
