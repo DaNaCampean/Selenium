@@ -14,7 +14,6 @@ public class ChromeSetup {
 
        WebDriver driver = new ChromeDriver(options);
        chromeMaximize(driver);
-       //driver.manage().window().maximize();
        return driver;
     }
 
