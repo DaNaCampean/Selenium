@@ -1,4 +1,4 @@
-package HW_01_emag;
+package HW_01_emag_var1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

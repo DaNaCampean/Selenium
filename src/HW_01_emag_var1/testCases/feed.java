@@ -1,4 +1,4 @@
-package HW_01_emag.testCases;
+package HW_01_emag_var1.testCases;
 
 public class feed {
 

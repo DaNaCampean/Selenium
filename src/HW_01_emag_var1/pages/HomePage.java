@@ -1,8 +1,6 @@
-package HW_01_emag.pages;
+package HW_01_emag_var1.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class HomePage {
 

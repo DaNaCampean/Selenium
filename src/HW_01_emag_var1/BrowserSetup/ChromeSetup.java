@@ -1,4 +1,4 @@
-package HW_01_emag.BrowserSetup;
+package HW_01_emag_var1.BrowserSetup;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

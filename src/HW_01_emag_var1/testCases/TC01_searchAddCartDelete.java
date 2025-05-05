@@ -1,4 +1,4 @@
-package HW_01_emag.testCases;
+package HW_01_emag_var1.testCases;
 
 import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
@@ -6,11 +6,11 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 //import pages package
-import HW_01_emag.pages.HomePage;
-import HW_01_emag.BrowserSetup.ChromeSetup;
-import HW_01_emag.pages.SearchResultsPage;
-import HW_01_emag.pages.ProductDetailsPage;
-import HW_01_emag.pages.CosulMeuPage;
+import HW_01_emag_var1.pages.HomePage;
+import HW_01_emag_var1.BrowserSetup.ChromeSetup;
+import HW_01_emag_var1.pages.SearchResultsPage;
+import HW_01_emag_var1.pages.ProductDetailsPage;
+import HW_01_emag_var1.pages.CosulMeuPage;
 
 public class TC01_searchAddCartDelete {
 
