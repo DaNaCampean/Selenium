@@ -71,8 +71,8 @@ public class LearningCalendar {
         System.out.println("Jump Month = " + jumpMonthsBy);
         System.out.println("increment = " + increment);
 
-        System.setProperty("webdriver.chrome.driver", "/Users/dana/Desktop/JAVA_automation/3apra25/chromedriver-mac-x64/chromedriver");
-        //   System.setProperty("webdriver.chrome.driver", "D:\\Backup Softvision\\AUTOMATION STUFF\\selenium\\chromedriver-win64\\chromedriver.exe");
+      //  System.setProperty("webdriver.chrome.driver", "/Users/dana/Desktop/JAVA_automation/3apra25/chromedriver-mac-x64/chromedriver");
+          System.setProperty("webdriver.chrome.driver", "D:\\Backup Softvision\\AUTOMATION STUFF\\selenium\\chromedriver-win64\\chromedriver.exe");
 
 
         ChromeOptions options = new ChromeOptions();
@@ -95,6 +95,8 @@ public class LearningCalendar {
 
         // Perform double-click
         actions.doubleClick(flightsClick).perform();
+
+
 
 
         driver.findElement(By.xpath("   //div[@data-bdd='farefinder-flight-startdate-input']")).click();
@@ -170,11 +172,11 @@ public class LearningCalendar {
 
         driver.findElement(By.xpath("//*[name()='svg' and @data-id='SVG_PLUS__16']")).click();
         driver.findElement(By.xpath("//span[@class='btn__label' and text()='Done']")).click();
+//
+//<input class="form-control" aria-invalid="false" readonly="" aria-label="" placeholder="" name="farefinder-occupant-selector-flight" id="farefinder-occupant-selector-flight-input" role="button" type="text" value="1 Adult, 0 Children"><label class="has-icon" for="farefinder-occupant-selector-flight-input"></label><span class="form-control-icon"><span class="SVGIcon"><svg focusable="false" data-id="SVG_HW_FUNCTIONAL_USER" width="16px" height="16px" viewBox="0 0 16 16"><path stroke="none" fill="currentColor" id="a" d="M8 8c1.852 0 3.572.573 4.844 1.614C14.254 10.767 15 12.419 15 14.39v1.082c0 .292-.23.528-.514.528H1.514A.521.521 0 0 1 1 15.472V14.39C1 10 4.628 8 8 8zm0-8a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"></path></svg></span></span></div><div class="picker__overlay picker__overlay--selectable" role="button" tabindex="0"></div></div>
 
-<input class="form-control" aria-invalid="false" readonly="" aria-label="" placeholder="" name="farefinder-occupant-selector-flight" id="farefinder-occupant-selector-flight-input" role="button" type="text" value="1 Adult, 0 Children"><label class="has-icon" for="farefinder-occupant-selector-flight-input"></label><span class="form-control-icon"><span class="SVGIcon"><svg focusable="false" data-id="SVG_HW_FUNCTIONAL_USER" width="16px" height="16px" viewBox="0 0 16 16"><path stroke="none" fill="currentColor" id="a" d="M8 8c1.852 0 3.572.573 4.844 1.614C14.254 10.767 15 12.419 15 14.39v1.082c0 .292-.23.528-.514.528H1.514A.521.521 0 0 1 1 15.472V14.39C1 10 4.628 8 8 8zm0-8a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"></path></svg></span></span></div><div class="picker__overlay picker__overlay--selectable" role="button" tabindex="0"></div></div>
 
-
-                /input[@id=farefinder-occupant-selector-flight-input']
+  //              /input[@id=farefinder-occupant-selector-flight-input']
 
         //div[@data-bdd='hw-form-group form-group floating-label not-empty has-icon is-readonly']
 
