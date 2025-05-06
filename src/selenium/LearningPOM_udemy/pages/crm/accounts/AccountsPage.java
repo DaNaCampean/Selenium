@@ -10,12 +10,14 @@ public class AccountsPage extends Page {
 	
 
 	
-	public void  gotoCreateAccounts(){
+	public CreateAccountPage  gotoCreateAccounts(){
+		//era void
 		System.out.println("create account from accountPage class");
 
 		driver.findElement(By.xpath(" //button[normalize-space()='Create Account']")).click();
 
 		// menu.signOut(); - accesam asta din topMenu
+		return new CreateAccountPage();
 
 	}
 	

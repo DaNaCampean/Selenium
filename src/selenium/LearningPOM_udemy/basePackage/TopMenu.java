@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import selenium.LearningPOM_udemy.pages.crm.accounts.AccountsPage;
 
 public class TopMenu {
 
@@ -40,8 +41,8 @@ public class TopMenu {
 
     }
 
-    public void gotoAccounts() {
-
+    public AccountsPage gotoAccounts() {
+// era void
 
         System.out.println("goto accounts from TopMenu page");
 // cum putem accesa driverul??????
@@ -52,13 +53,8 @@ public class TopMenu {
       // WebElement element =  driver.findElement(By.xpath("//span[text()='Accounts']"));
        driver.findElement(By.xpath("//div[@data-value='Accounts']")).click();
 
+return new AccountsPage();
 
-        Actions actions = new Actions(driver);
-
-        // Perform double-click
-        System.out.println("ACTION????");
-       // actions.click(element);
-       // driver.findElement(By.cssSelector("#tab_Accounts")).click();
     }
 
     public void gotoContacts() {

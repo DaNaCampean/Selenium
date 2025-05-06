@@ -1,8 +1,4 @@
-package selenium.LearningPOM_udemy.testCases;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+package selenium.LearningPOM_udemy.testsOld;
 
 public class Main {
 

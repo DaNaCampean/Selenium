@@ -31,10 +31,12 @@ public class HomePage extends Page {
 
     }
 
-    public void goToLogIn(){
-
+    public LoginPage goToLogIn(){
+//this method should return an object of login page..
+        //initial era void in loc de LoginPage
         driver.findElement(By.linkText("Sign In")).click();
         System.out.println("SignIn page");
+        return new LoginPage();
     }
 
 

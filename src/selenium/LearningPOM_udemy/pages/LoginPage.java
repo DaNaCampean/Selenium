@@ -12,20 +12,17 @@ public class LoginPage extends Page {
     // REMOVE THIS CAND FACEM EXTENDS
     */
 
-    public void doLogin(String username, String password){
-
+    public ZooAppPage doLogin(String username, String password){
+// era void inainte
+        //asta ne va duce in ZOOApp PAGE...dand click pe flow...
 
       // driver.findElement(By.linkText("Sign In")).click();
        driver.findElement(By.xpath("//input[@id='login_id']")).sendKeys(username);
        driver.findElement(By.xpath("//button[@id='nextbtn']")).click();
        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
-
-        driver.findElement(By.xpath("//button[@id='nextbtn']")).click();
-       // driver.findElement(By.cssSelector("#pwd")).sendKeys(password);
-
-      //  driver.findElement(By.cssSelector("#submit_button")).click();
-        System.out.println("doLogin from login page");
-
+       driver.findElement(By.xpath("//button[@id='nextbtn']")).click();
+       System.out.println("doLogin from login page");
+       return new ZooAppPage();
 
     }
 
