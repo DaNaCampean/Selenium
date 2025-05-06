@@ -1,12 +1,9 @@
 package selenium.LearningPOM_udemy.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import selenium.LearningPOM_udemy.basePackage.PageClass;
+import selenium.LearningPOM_udemy.basePackage.Page;
 
-import java.sql.SQLOutput;
-
-public class LoginPage extends PageClass {
+public class LoginPage extends Page {
 
   // REMOVE THIS CAND FACEM EXTENDS //WebDriver driver;
    /* public  LoginPage(WebDriver driver){
@@ -17,8 +14,13 @@ public class LoginPage extends PageClass {
 
     public void doLogin(String username, String password){
 
-        //driver.switchTo().frame("zohoiam");
-       // driver.findElement(By.cssSelector("#lid")).sendKeys(username);
+
+      // driver.findElement(By.linkText("Sign In")).click();
+       driver.findElement(By.xpath("//input[@id='login_id']")).sendKeys(username);
+       driver.findElement(By.xpath("//button[@id='nextbtn']")).click();
+       driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
+
+        driver.findElement(By.xpath("//button[@id='nextbtn']")).click();
        // driver.findElement(By.cssSelector("#pwd")).sendKeys(password);
 
       //  driver.findElement(By.cssSelector("#submit_button")).click();

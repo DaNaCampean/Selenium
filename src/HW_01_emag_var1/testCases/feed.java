@@ -23,6 +23,10 @@ locatorii se pun sus, nu inainte de fiecare clasa unde e folosit
 
 clasele de Page, eg. HomePage, trebe puse intr=un BaseTest si fiecare test sa extinda basetest
 
+
+
+PUNE LOCATORI IN CLasa separata
+
  */
 
 

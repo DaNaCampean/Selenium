@@ -1,9 +1,9 @@
 package selenium.LearningPOM_udemy.pages;
 
-import org.openqa.selenium.WebDriver;
-import selenium.LearningPOM_udemy.basePackage.PageClass;
+import org.openqa.selenium.By;
+import selenium.LearningPOM_udemy.basePackage.Page;
 
-public class ZooAppPage extends PageClass {
+public class ZooAppPage extends Page {
 
   //  WebDriver driver; // REMOVE THIS CAND FACEM EXTENDS
 
@@ -21,6 +21,11 @@ public class ZooAppPage extends PageClass {
 
     public void goToCRM(){
         System.out.println("CRM");
+        driver.findElement(By.xpath("//div[@class='app-nm' and text()='CRM']")).click();
+    }
+
+    public void gotoSales(){
+        System.out.println("SALES");
     }
 
 }

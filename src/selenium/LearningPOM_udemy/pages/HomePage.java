@@ -1,10 +1,9 @@
 package selenium.LearningPOM_udemy.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import selenium.LearningPOM_udemy.basePackage.PageClass;
+import selenium.LearningPOM_udemy.basePackage.Page;
 
-public class HomePage extends PageClass {
+public class HomePage extends Page {
 
 
 
@@ -26,13 +25,15 @@ public class HomePage extends PageClass {
 
     }
 
-    public void goToSignUp(){
+    public void goToSignUp()
+    {
         driver.findElement(By.linkText("Sign Up")).click();
+
     }
 
     public void goToLogIn(){
 
-        //driver.findElement(By.linkText("Sign In")).click();
+        driver.findElement(By.linkText("Sign In")).click();
         System.out.println("SignIn page");
     }
 

@@ -103,7 +103,9 @@ public class TC01_searchAddCartDelete {
         //assert - Check that "Cosul meu" page opens from View Cart Menu - top right
         cosulMeu.clickCosulMeuMenu();
         System.out.print("CHECK that the Cosul meu page opens (opened from the menu) - ");
+
         verificationAssert(cosulMeu.viewCosulMeuHeaderText(), "Coșul meu", "Cosul meu text is not correct or displayed"); // doar daca nu e ok apare acest mesaj
+
         System.out.println("PASSED - The cart opens.");
 
 

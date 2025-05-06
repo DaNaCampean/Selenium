@@ -1,17 +1,20 @@
 package selenium.LearningPOM_udemy.testCases;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+//import selenium.LearningPOM_udemy.pages.HomePage;
+//import selenium.LearningPOM_udemy.pages.LoginPage;
+//import selenium.LearningPOM_udemy.pages.ZooAppPage;
+
+import selenium.LearningPOM_udemy.basePackage.Page;
 import selenium.LearningPOM_udemy.pages.HomePage;
 import selenium.LearningPOM_udemy.pages.LoginPage;
 import selenium.LearningPOM_udemy.pages.ZooAppPage;
+import selenium.LearningPOM_udemy.pages.crm.accounts.AccountsPage;
+import selenium.LearningPOM_udemy.pages.crm.accounts.CreateAccountPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class LogInTest {
+public class LogInTest extends Page {
 
 
     public static void main(String[] args) {
@@ -27,17 +30,29 @@ public class LogInTest {
 
 
         */
+
         HomePage home = new HomePage();
         home.goToLogIn();
       //   LoginPage login = new LoginPage(driver); - ASTA E ORIGINAL INAINTE DE EXTENDS
 
         LoginPage login = new LoginPage();
-       // login.doLogin("trainer@way2automation.com", "Selenium@123");
-        System.out.println("Test from LogIn page");
+        login.doLogin("dana.campean@yahoo.com", "Softvision@10");
 
         ZooAppPage zp = new ZooAppPage();
-        zp.goToChat();
+        zp.goToCRM();
+       // Page.menu.signOut();
+        //sau
+        Page.menu.gotoAccounts();
+       AccountsPage account = new AccountsPage();
+       account.gotoCreateAccounts();
+       CreateAccountPage cap = new CreateAccountPage();
+        cap.createAccount("Dana");
 
+
+        // driver.manage.window.maximize(); - these are 3 different methods, coming from 3 different clase
+        // nu creeam obiecte,straint forward....we are getting them from clases, si sunt returnate din metode din clase
+        //PON zice ca fiecare metoda e responsabila sa te duca in o pagina si sa returneze un object of that page.
+       // daca pove de goto login, ....
 
 
        // home.goToSignUp();

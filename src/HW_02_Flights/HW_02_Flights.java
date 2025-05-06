@@ -71,14 +71,15 @@ public class HW_02_Flights {
         System.out.println("Jump Month = " + jumpMonthsBy);
         System.out.println("increment = " + increment);
 
-         System.setProperty("webdriver.chrome.driver", "/Users/dana/Desktop/JAVA_automation/3apra25/chromedriver-mac-x64/chromedriver");
-        //System.setProperty("webdriver.chrome.driver", "D:\\Backup Softvision\\AUTOMATION STUFF\\selenium\\chromedriver-win64\\chromedriver.exe");
+      //   System.setProperty("webdriver.chrome.driver", "/Users/dana/Desktop/JAVA_automation/3apra25/chromedriver-mac-x64/chromedriver");
+       System.setProperty("webdriver.chrome.driver", "D:\\Backup Softvision\\AUTOMATION STUFF\\selenium\\chromedriver-win64\\chromedriver.exe");
 
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-search-engine-choice-screen");
+       // ChromeOptions options = new ChromeOptions();
+      ///  options.addArguments("--disable-search-engine-choice-screen");
 
-        WebDriver driver = new ChromeDriver(options);
+      //  WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
 
         driver.manage().window().maximize();
         driver.get("https://www.hotwire.com/");
