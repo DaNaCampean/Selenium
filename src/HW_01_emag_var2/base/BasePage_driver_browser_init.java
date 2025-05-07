@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasePage_driver_browser_init {
 
     public static WebDriver driver;
@@ -30,6 +32,11 @@ public class BasePage_driver_browser_init {
         System.setProperty("webdriver.chrome.driver", "/Users/dana/Desktop/JAVA_automation/3apra25/chromedriver-mac-x64/chromedriver");
 
     }
+
+    public static void waitResults() {
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    }
+
 
     public static void browserQuit() {
         driver.quit();

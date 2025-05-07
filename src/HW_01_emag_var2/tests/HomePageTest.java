@@ -1,5 +1,6 @@
 package HW_01_emag_var2.tests;
 
+import HW_01_emag_var2.base.BasePage_driver_browser_init;
 import HW_01_emag_var2.pages.SearchResultsPage;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -33,38 +34,38 @@ public class HomePageTest extends BaseTests {
         verificationAssert(search.getCurrentURL(), "https://www.emag.ro/search/aspiratoare", "The URL for searching results is not correct"); // doar daca nu e ok apare acest mesaj
         System.out.println("PASSED - search results page is displayed");
 
+    }
+
+    @Test
+    public void selectAspirator(){
+        // Așteaptă pentru rezultate - daca nu pun asta.... nu imi gaseste urmatorul XPath
+        BasePage_driver_browser_init.waitResults();
+
+
+
+
+        /*
+
+        // get data for assert - aspirator name from search page
+        String dataName = search.returnDataName();
+        // select the 3rd aspirator
+        search.selectProduct();
+
+        //Create object of ProductDetailsPage
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
+        String productName = productDetailsPage.productGetText();
+
+        System.out.print("CHECK that the 3rd aspirator details page opens - ");
+        verificationAssert(productName,dataName, "The page opened is not correct"); // doar daca nu e ok apare acest mesaj
+        System.out.println("PASSED - correct page is displayed");
+        */
+
 
     }
 
 }
 
 /*
-
-
-
-
-
-
-
-
-
-        // Create object of Home page
-        HomePage home = new HomePage(driver);
-
-
-
-        //search for aspiratoare
-
-        //Create object of SearchResultsPage
-        SearchResultsPage search = new SearchResultsPage(driver);
-
-        // search for aspiratoare and submit
-        search.searchTextField("aspiratoare");
-
-        //assert - Check that search results is correct
-        System.out.print("CHECK that search by aspiratoare page is correct. I used URL verification - ");
-        verificationAssert(driver.getCurrentUrl(), "https://www.emag.ro/search/aspiratoare", "The URL for searching results is not correct"); // doar daca nu e ok apare acest mesaj
-        System.out.println("PASSED - search results page is displayed");
 
         // Așteaptă pentru rezultate - daca nu pun asta.... nu imi gaseste urmatorul XPath
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);

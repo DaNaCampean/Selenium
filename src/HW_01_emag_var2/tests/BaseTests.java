@@ -8,6 +8,7 @@ public class BaseTests {
 
 
 
+
     @BeforeSuite
     public void initDriver(){
         System.out.println("Sunt in initDriver");
