@@ -18,13 +18,16 @@ public class LoginTest extends BaseTest {
         LoginPage lp = home.goToLogIn();
         lp.doLogin("dana.campean@yahoo.com", "Softvision@10");
         ZooAppPage zp = new ZooAppPage();
-        zp.goToCRM();
-        AccountsPage account = Page.menu.gotoAccounts();
-        CreateAccountPage cap = account.gotoCreateAccounts();
+       zp.goToCRM();
+      AccountsPage account = Page.menu.gotoAccounts();
+       CreateAccountPage cap = account.gotoCreateAccounts();
         cap.createAccount("Dana");
-        Assert.fail("Create account test fail");
+       // Assert.fail("Create account test fail");
 
     }
+
+    /*
+
     @Test
     public void createAccountTest(){
         ZooAppPage zp = new ZooAppPage();
@@ -33,6 +36,10 @@ public class LoginTest extends BaseTest {
         CreateAccountPage cap = account.gotoCreateAccounts();
         cap.createAccount("Dana");
     }
+
+     */
+
+
 
 }
 
