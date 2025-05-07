@@ -1,30 +1,23 @@
 package HW_01_emag_var2.tests;
 
 public class Questions {
+/*
+From Alex:
+1. .idea, .iml nu se pun la commit
+ -------
+2. locatorii se pun sus, nu inainte de fiecare clasa unde e folosit -  (sus, adica deasupra primei metode)
+---------- DONE
+3. // methode for assert - asta e redundanta, ca nu faci nimic in plus peste acel assertequals sa ti se merite
+------- DONE - DELETED
+4. clasele de Page, eg. HomePage, trebe puse intr=un BaseTest si fiecare test sa extinda basetest
+-------- NU CRED CA E BINE....am facut structura dupa udemy POM project
 
+-------------------------------------------
+QUESTIONS
     /*
     1. Top menu stuff care e accesat din multe pagini, gen search, emag, cos, fav
     2. clasa separata pentru locatori?
-    3. daca vreau sa fac setup de windows sau mac...cum e mai ok?
-    -- sa fac 2 clase BasePageDrive? sau ceva metode inside una????
+    3. Test???? ultimul: add to cos - asa merge, altfel, daca incerc separat, nu merge
 
 
-varianta sa pun in base page?
-  public WebDriver driverSetupMac(){
-        System.out.println("driversetupMac");
-        System.setProperty("webdriver.chrome.driver", "/Users/dana/Desktop/JAVA_automation/3apra25/chromedriver-mac-x64/chromedriver");
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-search-engine-choice-screen");
-
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        return driver;
-    }
-    si accesat din test cases cu :    HomePage home = new HomePage();
-                                      home.driverSetupMac();
-
-
-
-     */
 }
